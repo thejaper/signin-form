@@ -22,89 +22,84 @@
     </script>
     <style>
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
         @keyframes fieldFocus {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
-            50% { transform: scale(1.02); box-shadow: 0 0 20px 4px rgba(59, 130, 246, 0.2); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+            50% { box-shadow: 0 0 12px 2px rgba(59, 130, 246, 0.15); }
+            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
         }
         .load-animate {
-            animation: fadeIn 0.6s ease-out forwards;
+            animation: fadeIn 0.5s ease-out forwards;
         }
         .field-active:focus-within {
-            animation: fieldFocus 0.4s ease-out;
+            animation: fieldFocus 0.3s ease-out;
         }
         .tab-active {
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.5);
         }
         .glass-input {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.4);
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
         .glass-input:focus {
-            background: rgba(255, 255, 255, 0.4);
-            border-color: rgba(255, 255, 255, 0.8);
-            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
-            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.5);
+            border-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.1);
         }
         .glass-btn {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.8), rgba(147, 51, 234, 0.8));
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.7), rgba(147, 51, 234, 0.7));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.2s ease;
         }
         .glass-btn:hover {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.9), rgba(147, 51, 234, 0.9));
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.8), rgba(147, 51, 234, 0.8));
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
         }
     </style>
 </head>
 <body class="font-poppins min-h-screen flex items-center justify-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-    <div class="load-animate w-full max-w-md mx-4">
-        <div class="bg-white/20 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/30 p-8" style="background: rgba(255, 255, 255, 0.25); backdrop-filter: blur(20px);">
-            <h2 class="font-poppins text-3xl font-bold text-center mb-8 text-white drop-shadow-lg">Welcome</h2>
+    <div class="load-animate w-full max-w-sm mx-4">
+        <div class="bg-white/70 backdrop-blur-xl rounded-2xl shadow-xl border border-white/30 p-6" style="background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(20px);">
+            <h2 class="font-poppins text-2xl font-semibold text-center mb-6 text-gray-900">Welcome</h2>
 
-            <div class="flex gap-2 mb-8">
-                <button onclick="switchTab('signin')" id="tab-signin" class="tab-active flex-1 py-3 rounded-xl font-poppins font-medium text-white transition-all duration-300" style="background: rgba(255, 255, 255, 0.35);">Sign In</button>
-                <button onclick="switchTab('create')" id="tab-create" class="flex-1 py-3 rounded-xl font-poppins font-medium text-white/70 hover:text-white transition-all duration-300">Create Account</button>
+            <div class="flex gap-1 mb-6">
+                <button onclick="switchTab('signin')" id="tab-signin" class="tab-active flex-1 py-2 rounded-lg font-poppins text-sm font-medium text-gray-900 transition-all duration-200" style="background: rgba(255, 255, 255, 0.5);">Sign In</button>
+                <button onclick="switchTab('create')" id="tab-create" class="flex-1 py-2 rounded-lg font-poppins text-sm font-medium text-gray-500 hover:text-gray-900 transition-all duration-200">Create Account</button>
             </div>
 
-            <form id="signin-form" class="space-y-5" onsubmit="event.preventDefault()">
+            <form id="signin-form" class="space-y-3" onsubmit="event.preventDefault()">
                 <div class="field-active relative">
-                    <span class="iconify absolute left-4 top-1/2 -translate-y-1/2 text-white/70" data-icon="mdi:email-outline" data-width="20"></span>
-                    <input type="email" placeholder="Email" required class="glass-input font-poppins w-full pl-12 pr-4 py-3 rounded-xl text-white placeholder-white/50 outline-none">
+                    <span class="iconify absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" data-icon="mdi:email-outline" data-width="18"></span>
+                    <input type="email" placeholder="Email" required class="glass-input font-poppins w-full pl-10 pr-3 py-2.5 rounded-lg text-gray-900 placeholder-gray-400 text-sm outline-none">
                 </div>
                 <div class="field-active relative">
-                    <span class="iconify absolute left-4 top-1/2 -translate-y-1/2 text-white/70" data-icon="mdi:lock-outline" data-width="20"></span>
-                    <input type="password" placeholder="Password" required class="glass-input font-poppins w-full pl-12 pr-4 py-3 rounded-xl text-white placeholder-white/50 outline-none">
+                    <span class="iconify absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" data-icon="mdi:lock-outline" data-width="18"></span>
+                    <input type="password" placeholder="Password" required class="glass-input font-poppins w-full pl-10 pr-3 py-2.5 rounded-lg text-gray-900 placeholder-gray-400 text-sm outline-none">
                 </div>
-                <button type="submit" class="glass-btn font-poppins w-full py-3 rounded-xl text-white font-semibold mt-4">Sign In</button>
+                <button type="submit" class="glass-btn font-poppins w-full py-2.5 rounded-lg text-white text-sm font-medium mt-3">Sign In</button>
             </form>
 
-            <form id="create-form" class="space-y-5 hidden" onsubmit="event.preventDefault()">
+            <form id="create-form" class="space-y-3 hidden" onsubmit="event.preventDefault()">
                 <div class="field-active relative">
-                    <span class="iconify absolute left-4 top-1/2 -translate-y-1/2 text-white/70" data-icon="mdi:account-outline" data-width="20"></span>
-                    <input type="text" placeholder="Full Name" required class="glass-input font-poppins w-full pl-12 pr-4 py-3 rounded-xl text-white placeholder-white/50 outline-none">
+                    <span class="iconify absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" data-icon="mdi:account-outline" data-width="18"></span>
+                    <input type="text" placeholder="Full Name" required class="glass-input font-poppins w-full pl-10 pr-3 py-2.5 rounded-lg text-gray-900 placeholder-gray-400 text-sm outline-none">
                 </div>
                 <div class="field-active relative">
-                    <span class="iconify absolute left-4 top-1/2 -translate-y-1/2 text-white/70" data-icon="mdi:email-outline" data-width="20"></span>
-                    <input type="email" placeholder="Email" required class="glass-input font-poppins w-full pl-12 pr-4 py-3 rounded-xl text-white placeholder-white/50 outline-none">
+                    <span class="iconify absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" data-icon="mdi:email-outline" data-width="18"></span>
+                    <input type="email" placeholder="Email" required class="glass-input font-poppins w-full pl-10 pr-3 py-2.5 rounded-lg text-gray-900 placeholder-gray-400 text-sm outline-none">
                 </div>
                 <div class="field-active relative">
-                    <span class="iconify absolute left-4 top-1/2 -translate-y-1/2 text-white/70" data-icon="mdi:lock-outline" data-width="20"></span>
-                    <input type="password" placeholder="Password" required class="glass-input font-poppins w-full pl-12 pr-4 py-3 rounded-xl text-white placeholder-white/50 outline-none">
+                    <span class="iconify absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" data-icon="mdi:lock-outline" data-width="18"></span>
+                    <input type="password" placeholder="Password" required class="glass-input font-poppins w-full pl-10 pr-3 py-2.5 rounded-lg text-gray-900 placeholder-gray-400 text-sm outline-none">
                 </div>
                 <div class="field-active relative">
-                    <span class="iconify absolute left-4 top-1/2 -translate-y-1/2 text-white/70" data-icon="mdi:lock-check-outline" data-width="20"></span>
-                    <input type="password" placeholder="Confirm Password" required class="glass-input font-poppins w-full pl-12 pr-4 py-3 rounded-xl text-white placeholder-white/50 outline-none">
+                    <span class="iconify absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" data-icon="mdi:lock-check-outline" data-width="18"></span>
+                    <input type="password" placeholder="Confirm Password" required class="glass-input font-poppins w-full pl-10 pr-3 py-2.5 rounded-lg text-gray-900 placeholder-gray-400 text-sm outline-none">
                 </div>
-                <button type="submit" class="glass-btn font-poppins w-full py-3 rounded-xl text-white font-semibold mt-4">Create Account</button>
+                <button type="submit" class="glass-btn font-poppins w-full py-2.5 rounded-lg text-white text-sm font-medium mt-3">Create Account</button>
             </form>
         </div>
     </div>
@@ -120,16 +115,20 @@
                 signinForm.classList.remove('hidden');
                 createForm.classList.add('hidden');
                 tabSignin.classList.add('tab-active');
-                tabSignin.classList.remove('text-white/70');
+                tabSignin.classList.remove('text-gray-500');
+                tabSignin.classList.add('text-gray-900');
                 tabCreate.classList.remove('tab-active');
-                tabCreate.classList.add('text-white/70');
+                tabCreate.classList.remove('text-gray-900');
+                tabCreate.classList.add('text-gray-500');
             } else {
                 signinForm.classList.add('hidden');
                 createForm.classList.remove('hidden');
                 tabCreate.classList.add('tab-active');
-                tabCreate.classList.remove('text-white/70');
+                tabCreate.classList.remove('text-gray-500');
+                tabCreate.classList.add('text-gray-900');
                 tabSignin.classList.remove('tab-active');
-                tabSignin.classList.add('text-white/70');
+                tabSignin.classList.remove('text-gray-900');
+                tabSignin.classList.add('text-gray-500');
             }
         }
     </script>
